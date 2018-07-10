@@ -247,15 +247,15 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Project\OnlineStore\olx\media\product_image" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\OnlineStore\media" />
       <recent name="F:\OnlineStore" />
+      <recent name="F:\OnlineStore\media" />
       <recent name="F:\OnlineStore\olx" />
       <recent name="F:\Project\OnlineStore\olx\static\images" />
       <recent name="F:\Project\OnlineStore\olx\Views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Project\OnlineStore\olx\media\product_image" />
     </key>
   </component>
   <component name="RunDashboard">
