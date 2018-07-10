@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db0975cb-69e6-4059-8803-74883f6379b8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnlineStore/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineStore/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnlineStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnlineStore/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olx/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/buy.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/return.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/return_back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/images/slide9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/static/js/olx-ajax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/olx/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -261,6 +245,12 @@
             <path>
               <item name="OnlineStore" type="b2602c69:ProjectViewProjectNode" />
               <item name="OnlineStore" type="462c0819:PsiDirectoryNode" />
+              <item name="olx" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineStore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OnlineStore" type="462c0819:PsiDirectoryNode" />
               <item name="OnlineStore" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -383,7 +373,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32954547" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
