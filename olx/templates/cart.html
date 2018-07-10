@@ -22,7 +22,7 @@
                     {% if  product.product.image  %}
                     <a href="{% url 'olx:productInfo' product.product.id %}"><img src="{{ product.product.image.url }}" alt="img" class="img-circle" height="150" width="150"></a>
                     {% else %}
-                    <a href="{% url 'olx:productInfo' product.product.id %}"><img src="../../media/no_image.jpg" alt="img"class="img-circle" height="150" width="150"></a>
+                    <a href="{% url 'olx:productInfo' product.product.id %}"><img src="../../media/no_image.jpg" alt="img" class="img-circle" height="150" width="150"></a>
                     {% endif %}
                     </td>
                 <td>{{product.product.name }}</td>
