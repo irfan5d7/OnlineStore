@@ -13,7 +13,9 @@ def show_category(request,category_name_slug):
         category = Category.objects.get(slug = category_name_slug)
         context_dict['category_name'] = category.name
         products = Product.objects.filter(category=category,is_sold=False).exclude(seller__username__exact=request.user.username).order_by('price')
+        profile = UserProfile.objects.filter(user__username=request.user.username)
         context_dict['products'] = products
+        context_dict['prof'] = profile
         context_dict['category'] = category
     except Category.DoesNotExist:
         pass

@@ -19,8 +19,10 @@ class ShowCartView(LoginRequiredMixin,ListView):
             #                                                                                     'product__image',
             #                                                                                     'product__is_sold')
             cart = Cart.objects.filter(user=self.request.user)
+            profile = UserProfile.objects.filter(user__username=self.request.user.username)
             context.update({
                 'products': cart,
+                'prof':profile,
                 'user_permissions': self.request.user.get_all_permissions()
             })
             return context

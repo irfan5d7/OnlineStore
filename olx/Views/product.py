@@ -40,6 +40,8 @@ class CreateProductView(LoginRequiredMixin,CreateView):
     template_name = 'add_product.html'
     def get_context_data(self, **kwargs):
         context = super(CreateProductView, self).get_context_data(**kwargs)
+        profile = UserProfile.objects.filter(user__username=self.request.user.username)
+        context['prof'] = profile
         return context
     def post(self, request, *args, **kwargs):
         product_form = AddProduct(request.POST,request.FILES)

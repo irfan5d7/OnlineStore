@@ -4,12 +4,6 @@
     Home
 {% endblock %}
 {% block body_block %}
-        <div>
-        {% if user.is_authenticated %}
-        <h1 align="right"><a href="{% url 'olx:profile' user.username %}"> <img src="{{ prof.picture.url }}" class="img-circle" height="50" width="50"></a></h1>
-        {% else %}
-        {% endif %}
-    </div>
     <h2>Categories</h2>
     {% if categories %}
         <center>
