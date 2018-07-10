@@ -26,8 +26,8 @@ SECRET_KEY = 'pxuojxuislte^b61fl((9l6m!pc7m*p=)n!zv$x=w4d!&ey&to'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = []
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -74,7 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'OnlineStore.wsgi.application'
 
 
-STATIC_DIR = os.path.join(BASE_DIR, 'olx\\static')
+
 
 STATIC_URL = '/static/'
 
@@ -82,7 +82,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #
