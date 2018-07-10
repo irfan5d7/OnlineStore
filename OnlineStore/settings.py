@@ -84,8 +84,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
 
-import ipdb
-ipdb.set_trace()
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #
 #
