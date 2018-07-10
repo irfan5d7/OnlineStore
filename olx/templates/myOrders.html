@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    My Orders
+{% endblock %}
+{% block body_block %}
+    <h1>{{ user.username}}'s Orders</h1>
+        {%  if products %}
+            <table class="table table-hover" cellpadding="10">
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Bought on</th>
+            </tr>
+            {%  for product in products %}
+                 <tr>
+                    <td>
+                {% if  product.product.is_sold %}
+                    {% if  product.product.image  %}
+                    <a href="{% url 'olx:productInfo' product.product.id %}"><img src="{{ product.product.image.url }}" alt="img" class="img-circle" height="150" width="150"></a>
+                    {% else %}
+                     <a href="{% url 'olx:productInfo' product.product.id %}"><img src="../../media/no_image.jpg" alt="img" class="img-circle" height="150" width="150"></a>
+                    {% endif %}
+                    </td>
+                <td>{{product.product.name }}</td>
+                <td> Rs {{ product.product.price }}</td>
+                    <td><a href="{% url 'olx:profile' product.product.seller.username %}">{{ product.product.seller.username }}</a></td>
+                <td> {{ product.product.sold_on }}</td>
+                    {% if product.product.id %}
+                    <td><a href="{% url 'olx:returnProduct' product.product.id %}"><img src="{% static "images/return_back.jpg" %}" alt="Return product" width="100"/></a> </td>
+                    {% endif %}
+                    </tr>
+                {% endif %}
+            {%  endfor %}
+            </table>
+         {% else %}
+            <strong>No Purchases Made Yet !!!</strong>
+        {%  endif %}
+{% endblock %}

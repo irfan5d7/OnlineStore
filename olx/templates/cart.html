@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    cart
+{% endblock %}
+{% block body_block %}
+    <h1>{{ user.username}}'s Cart</h1>
+        {%  if products %}
+            <table class="table table-hover" cellpadding="10">
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Buy</th>
+                <th>Remove</th>
+            </tr>
+            {%  for product in products %}
+                {% if not product.product.is_sold %}
+                     <tr>
+                         <td>
+                    {% if  product.product.image  %}
+                    <a href="{% url 'olx:productInfo' product.product.id %}"><img src="{{ product.product.image.url }}" alt="img" class="img-circle" height="150" width="150"></a>
+                    {% else %}
+                    <a href="{% url 'olx:productInfo' product.product.id %}"><img src="../../media/no_image.jpg" alt="img"class="img-circle" height="150" width="150"></a>
+                    {% endif %}
+                    </td>
+                <td>{{product.product.name }}</td>
+                <td>{{ product.product.price }}</td>
+                         <td> <a class="nav-link" href="{% url 'olx:profile' product.product.seller.username %}">{{ product.product.seller.username }}</a></td>
+                <td width="150px"><a href="{% url 'olx:buy' product.product.id %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="100"/></a></td>
+                <td><a href="{% url 'olx:removeFromCart' product.id %}"><img src="{% static "images/return.png" %}" alt="remove from cart" height="40" width="50"/></a></td>
+                </tr>
+
+                {% endif %}
+            {%  endfor %}
+            </table>
+         {% else %}
+            <strong>No products added to cart</strong>
+        {%  endif %}
+{% endblock %}
+
+

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    {{ category.name }}
+{% endblock %}
+{% block body_block %}
+    {%  if category %}
+
+        <h1>{{ category.name }}</h1>
+        <div align="right">
+        <a  href="{%  url 'olx:add_product' category.slug %}" class="btn btn-primary" role="button" aria-pressed="true" >Sell a Product</a>
+        </div>
+        <br>
+
+        {%  if products %}
+
+            <table class="table table-hover" cellpadding="10">
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            {%  for product in products %}
+                {% if not product.is_sold %}
+                    <tr>
+                     <td style="width: 400px;">
+                    {% if  product.image  %}
+                        <a href="{% url 'olx:productInfo' product.id %}"><img src="{{ product.image.url }}" alt="img" class="img-responsive img-rounded" height="150" width="150"></a>
+                    {% else %}
+                        <a href="{% url 'olx:productInfo' product.id %}"><img src="../../media/no_image.jpg" alt="img" class="img-responsive img-rounded" height="150" width="150"></a>
+                    {% endif %}
+
+                     </td>
+                    <td>{{ product.name }}</td>
+                    <td>Rs {{ product.price }}</td>
+                    </tr>
+                {% endif %}
+            {%  endfor %}
+            </table>
+
+         {% else %}
+            <strong>No products to sell currently in category</strong>
+        {%  endif %}
+    {%  else %}
+        <strong>Specified Category Does not exist.</strong>
+    {%  endif %}
+{% endblock %}

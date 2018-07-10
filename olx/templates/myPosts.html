@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    cart
+{% endblock %}
+{% block body_block %}
+    <h1>{{ user.username}}'s Posts</h1>
+        {%  if products %}
+             <table class="table table-hover" cellpadding="10">
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Posted On</th>
+            </tr>
+            {%  for product in products %}
+                <tr>
+                    <td>
+                   {% if  product.image %}
+                             <a href="{% url 'olx:productInfo' product.id %}"><img src="{{ product.image.url }}" alt="img" class="img-circle" height="150" width="150"></a>
+                   {% else %}
+                            <a href="{% url 'olx:productInfo' product.id %}"><img src="../../media/no_image.jpg" alt="img" class="img-circle" height="150" width="150"></a>
+                   {% endif %}
+                        </td>
+                <td>{{product.name }}</td>
+                <td>Rs {{ product.price }}</td>
+                <td> {{ product.posted_on }}</td>
+
+                    {% if  product.is_sold %}
+                       <td> Bought on {{ product.sold_on }}</td>
+                        <td>By {{ product.buyer }}</td>
+                        {% endif %}
+            </tr>
+            {%  endfor %}
+             </table>
+         {% else %}
+            <strong>You have not posted anything yet !!!</strong>
+        {%  endif %}
+{% endblock %}

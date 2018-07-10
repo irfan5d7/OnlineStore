@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    Post Product
+{% endblock %}
+{% block body_block %}
+    <div class="container">
+        <h1>Add Product</h1>
+        <form  method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit" name="submit">Post my product</button>
+    </form>
+ </div>
+{#    <div class="container">#}
+{#	<div class="cols-xs-6 cols-xs-offset-3">#}
+{#    <form method="post">#}
+{#    {% csrf_token %}#}
+{#    <fieldset>#}
+{#        <legend>Post a Product</legend>#}
+{#            <label for="{{form.name.id_for_label}}">#}
+{#                Name of the Product#}
+{#            </label>#}
+{#            {{form.name}}#}
+{#        <div class="form-group">#}
+{#            <label for="{{form.price.id_for_label}}">#}
+{#                Price#}
+{#            </label>#}
+{#            {{form.price}}#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label for="{{form.image.id_for_label}}">#}
+{#                Product Image#}
+{#            </label>#}
+{#            {{form.image}}#}
+{#        </div>#}
+{#        <div class="form-group">#}
+{#            <label for="{{form.description.id_for_label}}">#}
+{#                Product Description#}
+{#            </label>#}
+{#            {{form.description}}#}
+{#        </div>#}
+{#        <br/>#}
+{#        <input type="submit" value ='Post' style="color:blueviolet; height:30px; width:80px ">#}
+{#    </fieldset>#}
+{#    </form>#}
+{#	</div>#}
+{#</div>#}
+{% endblock %}

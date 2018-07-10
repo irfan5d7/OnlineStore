@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block body_block %}
+    <center>
+<div class="jumbotron" style="width: 400px ;">
+	<div class="cols-xs-3 cols-xs-offset-3">
+    <form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Signup</legend>
+        <div class="form-group" style="width: 250px ;">
+            <label for = "{{form.first_name.id_for_label}}">First Name</label>
+            {{form.first_name}}
+        </div>
+        <div class="form-group" style="width: 250px ;">
+            <label for = "{{form.last_name.id_for_label}}">Last Name</label>
+            {{form.last_name}}
+        </div>
+        <div class="form-group" style="width: 250px ;">
+            <label for = "{{form.username.id_for_label}}">User Name</label>
+            {{form.username}}
+        </div>
+
+        <div class="'form-group" style="width: 250px ;">
+            <label for = "{{form.email.id_for_label}}">Email</label>
+            {{form.email}}
+        </div>
+
+        <div class="'form-group" style="width: 250px ;">
+            <label for = "{{form.password.id_for_label}}">Password</label>
+            {{form.password}}
+        </div>
+    </fieldset>
+        <br/>
+        <button type="submit" class="btn btn-primary btn-lg">SignUp</button> <br>
+       <a href="{% url 'olx:login' %}" class="navbar-btn" role="button" aria-pressed="true">Login</a>
+    </form>
+    </div>
+</div>
+    </center>
+
+{% endblock %}

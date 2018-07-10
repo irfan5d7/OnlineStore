@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    {{ products.0 }}
+{% endblock %}
+{% block body_block %}
+        {%  if product %}
+            <ul>
+                    {% if  product.image %}
+                        <a href="{{ product.image.url }}" ><img src="{{ product.image.url}}" alt="img" class="img-responsive img-rounded" height="400" width="400"></a>
+                    {% else %}
+                    <img src="../../media/no_image.jpg" alt="img" class="img-responsive img-rounded" height="150" width="150">
+                    {% endif %}
+                    <table class="table table-striped" style="width: 300px">
+                        <tr>
+                            <th>Name</th>
+                            <td>{{product.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>Rs {{product.price  }}</td>
+                        </tr>
+                        <tr>
+                            <th>Posted on</th>
+                            <td>{{ product.posted_on }}</td>
+                        </tr>
+                        <tr>
+                            <th>By</th>
+                            <td><a href="{% url 'olx:profile' product.seller %}">{{ product.seller }}</a></td>
+                        </tr>
+                        <tr><th>Description</th>
+                        <td>{{ product.description }}</td></tr>
+                    </table>
+                {% if user.username %}
+                       {% if not product.is_sold %}
+                           {% if user != product.seller %}
+                       <h3><a href="{% url 'olx:buy' product.id %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="120"/></a>
+                            <a href="{% url 'olx:addtoCart' product.id %}"><img src="{% static "images/cart.png" %}" alt="cart" width="120"/></a>
+                       </h3>
+                               {% else %}
+                                    <table>
+                                        <tr>
+                                            <td><a class="btn peach-gradient btn-lg" href="{% url 'olx:edit_product' product.id %}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true">Edit</span></a></td>
+                                            <td><a class="btn peach-gradient btn-lg" href="{% url 'olx:delete_product' product.id %}" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span></a></td>
+
+                                        </tr>
+                                    </table>
+                           {% endif %}
+                       {% endif %}
+                            <div class="jumbotron"style="width: 500px">
+                           {% if comm %}
+
+                               <h2>Comments:</h2>
+                               <ul class="list-group">
+                               {% for comment in comm %}
+                                   <li class="list-group-item"><strong><a href="{% url 'olx:profile' comment.user__username %}">{{ comment.user__username }}</a>:</strong>&nbsp&nbsp;&nbsp;
+                                   {{ comment.comments  }}</li>
+                               {% endfor %}
+                               </ul>
+                               {% else %}
+                               No comments yet
+                           {% endif %}
+                            </div>
+                    <a href="{% url 'olx:add_comment' product.id %}"><button class="btn blue-gradient btn-rounded">Add<span class="glyphicon glyphicon-comment"></span></button></a></button>
+                {% else %}
+                    <h2><a href="{% url 'olx:login' %}">Login to Buy/Comment</a> </h2>
+                {% endif %}
+            <hr/>
+            </ul>
+    {% endif %}
+{% endblock %}

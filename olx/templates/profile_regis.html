@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title_block %}
+    Profile Details
+{% endblock %}
+{% block body_block %}
+<div class="container">
+        <h1>Profile Details</h1>
+        <form  method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit" name="submit">Save</button>
+    </form>
+ </div>
+
+{% endblock %}

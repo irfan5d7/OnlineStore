@@ -1,0 +1,9 @@
+<ul class="list-group">
+{% if prod %}
+    {% for p in prod %}
+        {% if p.seller != user %}
+            <li>&nbsp;&nbsp;&nbsp;<strong><a href="{% url 'olx:productInfo' p.id %}">{{ p.name }}</a></strong></li>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+</ul>
