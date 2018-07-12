@@ -8,20 +8,20 @@
 <div class="container-fluid well span6" style="width:500px;">
 	<div class="row-fluid">
         <div class="span2" >
-		 <a href="{{ prof.picture.url }}"> <img src="{{ prof.picture.url }}" class="img-circle" height="150" width="150"></a>
+		 <a href="{{ profil.picture.url }}"> <img src="{{ profil.picture.url }}" class="img-circle" height="150" width="150"></a>
         </div>
         <div class="span8">
-            <h3>User Name : {{ prof.user }}</h3>
-            <h5><strong>First Name:</strong>{{ prof.user.first_name }}</h5>
-            <h5><strong>Last Name:</strong>{{ prof.user.last_name }}</h5>
-            <h6><strong>Email:</strong> {{ prof.user.email }}</h6>
-            <h6><strong>Contact Number:</strong> {{ prof.contact_no }}</h6>
+            <h3>User Name : {{ profil.user }}</h3>
+            <h5><strong>First Name:</strong>{{ profil.user.first_name }}</h5>
+            <h5><strong>Last Name:</strong>{{ profil.user.last_name }}</h5>
+            <h6><strong>Email:</strong> {{ profil.user.email }}</h6>
+            <h6><strong>Contact Number:</strong> {{ profil.contact_no }}</h6>
             <h6><strong>Address</strong></h6>
             <p>
-                {{ prof.address }}
+                {{ profil.address }}
             </p>
         </div>
-        {% if user == prof.user %}
+        {% if user == profil.user %}
             <div class="span2">
             <div class="btn-group">
                 <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
@@ -29,7 +29,7 @@
                     <span class="icon-cog icon-white"></span><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'olx:profile_details_edit' prof.id %}"><span class="icon-wrench"></span> Modify</a></li>
+                    <li><a href="{% url 'olx:profile_edit' profil.id %}"><span class="icon-wrench"></span> Modify</a></li>
                 </ul>
             </div>
         </div>

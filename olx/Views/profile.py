@@ -9,11 +9,20 @@ from olx.models import UserProfile
 
 
 class ProfileView(View):
+    login_url = '/login/'
     model = UserProfile
     def get(self, request, *args, **kwargs):
-        profile = UserProfile.objects.get(user__username =kwargs.get('value'))
+        try:
+
+            profile = UserProfile.objects.get(user__username =kwargs.get('value'))
+            prof = UserProfile.objects.filter(user__username=self.request.user.username)
+            if prof:
+                prof = prof[0]
+        except:
+            return redirect('olx:profile_details_add')
         context = {
-            'prof': profile,
+            'profil': profile,
+            'prof':prof
         }
         return render(request,"profile.html",context)
 
@@ -59,8 +68,6 @@ class UpdateProfileView(LoginRequiredMixin,UpdateView):
         return context
     def post(self, request, *args, **kwargs):
         prof = UserProfile.objects.get(user = kwargs.get('pk'))
-        import ipdb
-        ipdb.set_trace()
         form = AddProfile(request.POST,request.FILES,instance=prof)
         form.save()
         return redirect('olx:index')

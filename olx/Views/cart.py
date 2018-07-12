@@ -3,6 +3,7 @@ import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
+from django.views.generic.base import View
 
 from olx.models import *
 
@@ -12,14 +13,10 @@ class ShowCartView(LoginRequiredMixin,ListView):
         template_name = 'cart.html'
         def get_context_data(self, **kwargs):
             context = super(ShowCartView, self).get_context_data(**kwargs)
-            # cart = Cart.objects.filter(user__id=self.request.user.id, product__is_sold=False).values('id', 'product__id',
-            #                                                                                     'product__name',
-            #                                                                                     'product__price',
-            #                                                                                     'product__seller__username',
-            #                                                                                     'product__image',
-            #                                                                                     'product__is_sold')
             cart = Cart.objects.filter(user=self.request.user)
             profile = UserProfile.objects.filter(user__username=self.request.user.username)
+            if profile:
+                profile=profile[0]
             context.update({
                 'products': cart,
                 'prof':profile,
@@ -47,11 +44,44 @@ def buy(request,pk):
     car = Cart.objects.get_or_create(product=product,user=request.user)
     return redirect('olx:myOrders')
 
+
+class buy_view(View):
+    login_url = '/login/'
+    model = UserProfile
+    def get(self, request, *args, **kwargs):
+        try:
+
+            profile = UserProfile.objects.get(user__username =kwargs.get('value'))
+            prof = UserProfile.objects.filter(user__username=self.request.user.username)
+            if prof:
+                prof = prof[0]
+
+        except:
+            return redirect('olx:profile_details_add')
+        context = {
+            'profil': profile,
+            'prof':prof,
+            'prod_id':kwargs.get('pk')
+        }
+        return render(request,"confirm_buy.html",context)
+
+
+
+
+
+
+
+
+
 def myOrders(request):
     context_dict = {}
     try:
         cart = Cart.objects.filter( user=request.user,product__is_sold=True)
         context_dict['products'] = cart
+        profile = UserProfile.objects.filter(user__username=request.user.username)
+        if profile:
+            profile = profile[0]
+        context_dict['prof'] = profile
     except Cart.DoesNotExist:
         pass
     return render(request, 'myOrders.html', context_dict)
@@ -60,6 +90,10 @@ def my_posts(request):
     try:
         product = Product.objects.filter(seller_id = request.user.id)
         context_dict['products'] = product
+        profile = UserProfile.objects.filter(user__username=request.user.username)
+        if profile:
+            profile = profile[0]
+        context_dict['prof'] = profile
     except Cart.DoesNotExist:
         pass
     return render(request, 'myPosts.html', context_dict)
@@ -67,8 +101,11 @@ def my_posts(request):
 def add_toCart(request,pk):
     context_dict = {}
     product = Product.objects.get(id=pk)
-    cart = Cart(user=request.user,product=product)
-    cart.save()
+    try:
+        cart = Cart.objects.get(product=product)
+    except:
+        cart = Cart(user=request.user,product=product)
+        cart.save()
     return redirect('olx:cart')
 
 

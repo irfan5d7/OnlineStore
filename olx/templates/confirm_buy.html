@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    Profile
+{% endblock %}
+{% block body_block %}
+   <br><br>
+<div class="container-fluid well span6">
+<h3>Contact details of seller:</h3>
+	<div class="row-fluid">
+        <div class="span2" >
+		 <a href="{{ profil.picture.url }}"> <img src="{{ profil.picture.url }}" class="img-circle" height="50" width="50"></a>
+        </div>
+        <div class="span8">
+            <h3>User Name : {{ profil.user }}</h3>
+            <h5><strong>First Name:</strong>{{ profil.user.first_name }}</h5>
+            <h5><strong>Last Name:</strong>{{ profil.user.last_name }}</h5>
+            <h6><strong>Email:</strong> {{ profil.user.email }}</h6>
+            <h4><strong>Contact Number:</strong> {{ profil.contact_no }}</h4>
+            <h6><strong>Address</strong></h6>
+            <p>
+                {{ profil.address }}
+            </p>
+        </div>
+
+
+</div>
+    <div class="container-fluid">
+        Confirm the buy:
+         <a  href="{%  url 'olx:buy' prod_id %}" class="btn btn-primary" role="button" aria-pressed="true" >Buy</a>
+         <a  href="{%  url 'olx:productInfo' prod_id %}" class="btn btn-primary" role="button" aria-pressed="true" >Not Now</a>
+    </div>
+</div>
+{% endblock %}

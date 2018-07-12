@@ -34,7 +34,7 @@
                 {% if user.username %}
                        {% if not product.is_sold %}
                            {% if user != product.seller %}
-                       <h3><a href="{% url 'olx:buy' product.id %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="120"/></a>
+                       <h3><a href="{% url 'olx:buy_conf' product.seller product.id  %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="120"/></a>
                             <a href="{% url 'olx:addtoCart' product.id %}"><img src="{% static "images/cart.png" %}" alt="cart" width="120"/></a>
                        </h3>
                                {% else %}

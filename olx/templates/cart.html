@@ -28,7 +28,7 @@
                 <td>{{product.product.name }}</td>
                 <td>{{ product.product.price }}</td>
                          <td> <a class="nav-link" href="{% url 'olx:profile' product.product.seller.username %}">{{ product.product.seller.username }}</a></td>
-                <td width="150px"><a href="{% url 'olx:buy' product.product.id %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="100"/></a></td>
+                <td width="150px"><a href="{% url 'olx:buy_conf' product.product.seller.username product.product.id %}"><img src="{% static "images/buy.gif" %}" alt="cart" width="100"/></a></td>
                 <td><a href="{% url 'olx:removeFromCart' product.id %}"><img src="{% static "images/return.png" %}" alt="remove from cart" height="40" width="50"/></a></td>
                 </tr>
 

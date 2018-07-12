@@ -24,10 +24,12 @@ urlpatterns =[
     path('product_Info/<int:pk>/',product_info,name='productInfo'),
     path('remove_from_cart/<int:pk>/',remove_from_cart,name='removeFromCart'),
     path('return_product/<int:pk>/',return_product,name = 'returnProduct'),
-    path(r'buy/<int:pk>/',buy,name='buy'),
+    path('buy/<int:pk>/',buy,name='buy'),
     url(r'^suggest/$',suggest_product,name='suggest_product'),
     path('profile/view/<str:value>/',ProfileView.as_view(),name = "profile"),
     path('profile/add/',CreateProfileView.as_view(),name = 'profile_details_add'),
-    path('profile/<int:pk>/edit/',UpdateProfileView.as_view(),name = 'profile_details_edit'),
+    path('profile/<int:pk>/edit/',UpdateProfileView.as_view(),name = 'profile_edit'),
     path('comment/<int:pk>/add',CreateCommentView.as_view(),name = "add_comment"),
+    path('buy_confirm/<str:value>/<int:pk>/',buy_view.as_view(),name='buy_conf')
+
 ]
