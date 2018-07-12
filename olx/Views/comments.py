@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views.generic import *
 
 from olx.forms.comment import AddComment
-from olx.models import Comments, Product
+from olx.models import Comments, Product, UserProfile
 
 
 class CreateCommentView(LoginRequiredMixin,CreateView):
@@ -13,6 +13,10 @@ class CreateCommentView(LoginRequiredMixin,CreateView):
     template_name = 'comment.html   '
     def get_context_data(self, **kwargs):
         context = super(CreateCommentView, self).get_context_data(**kwargs)
+        profile = UserProfile.objects.filter(user__username=self.request.user.username)
+        if profile:
+            profile = profile[0]
+        context['prof'] = profile
         return context
     def post(self,request,*args,**kwargs):
         comment_form = AddComment(request.POST)

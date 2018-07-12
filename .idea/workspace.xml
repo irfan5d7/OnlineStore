@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db0975cb-69e6-4059-8803-74883f6379b8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olx/Views/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/olx/Views/cart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olx/Views/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/olx/Views/comments.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/OnlineStore$manage.coverage" NAME="manage Coverage Results" MODIFIED="1531424455684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OnlineStore$manage.coverage" NAME="manage Coverage Results" MODIFIED="1531424806087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -57,20 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/olx/Views/product.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-649">
-              <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cart.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/olx/Views/cart.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="104" column="65" selection-end-line="124" />
+            <state relative-caret-position="577">
+              <caret line="89" column="8" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="8" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -78,11 +69,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirm_buy.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/olx/templates/confirm_buy.html">
+      <file leaf-file-name="comments.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/olx/Views/comments.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="18" column="76" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+            <state relative-caret-position="250">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,6 +137,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
               <caret line="29" column="82" lean-forward="true" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/olx/Views/category.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="18" column="31" selection-start-line="16" selection-start-column="8" selection-end-line="19" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -215,7 +218,6 @@
         <option value="$PROJECT_DIR$/olx/forms/comment.py" />
         <option value="$PROJECT_DIR$/olx/Views/__init__.py" />
         <option value="$PROJECT_DIR$/olx/forms/__init__.py" />
-        <option value="$PROJECT_DIR$/olx/Views/comments.py" />
         <option value="$PROJECT_DIR$/olx/templates/myPosts.html" />
         <option value="$PROJECT_DIR$/olx/templates/comment.html" />
         <option value="$PROJECT_DIR$/olx/Views/login.py" />
@@ -247,6 +249,7 @@
         <option value="$PROJECT_DIR$/OnlineStore/settings.py" />
         <option value="$PROJECT_DIR$/OnlineStore/urls.py" />
         <option value="$PROJECT_DIR$/olx/Views/cart.py" />
+        <option value="$PROJECT_DIR$/olx/Views/comments.py" />
       </list>
     </option>
   </component>
@@ -616,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/olx/Views/comments.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OnlineStore/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -740,13 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/olx/Views/category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/olx/Views/productInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -845,10 +834,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/olx/Views/cart.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="104" column="65" selection-end-line="124" />
+        <state relative-caret-position="577">
+          <caret line="89" column="8" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/olx/Views/category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="18" column="31" selection-start-line="16" selection-start-column="8" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/olx/Views/comments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
