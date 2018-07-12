@@ -18,6 +18,7 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.static import serve
 
 from olx.Views import CategoryListView
 
@@ -25,6 +26,7 @@ urlpatterns = [
     url(r"^$",CategoryListView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     url(r'',include('olx.urls')),
+url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # import ipdb

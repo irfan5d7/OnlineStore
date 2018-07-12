@@ -20,7 +20,7 @@
 
 </head>
 <body>
-
+{% block nav_block %}
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -56,6 +56,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 {% if user.is_authenticated %}
                 <img src="{{ prof.picture.url }}" class="img-rounded" height="50" width="50">
+{#                    {{ prof.picture.url }}#}
               {% else %}
               Login/Signup
               {% endif %}
@@ -83,49 +84,6 @@
 </nav>
 
 .
-
-
-{#<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">#}
-{#      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#      </button>#}
-{#      <a class="navbar-brand" href="{% url 'olx:index' %}">OLX</a>#}
-{##}
-{#      <div class="collapse navbar-collapse" id="navbar">#}
-{#        <ul class="navbar-nav mr-auto">#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'olx:index' %}">Home</a>#}
-{#          </li>#}
-{#        {% if user.is_authenticated %}#}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:myPosts' %}">My Posts</a>#}
-{#            </li>#}
-{##}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:cart' %}">My Cart</a>#}
-{#            </li>#}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:myOrders' %}">My Orders</a>#}
-{#            </li>#}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:profile' user.username %}">{{ user.username }}</a>#}
-{#            </li>#}
-{##}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:logout' %}">Logout</a>#}
-{#            </li>#}
-{#        {% else %}#}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:signup' %}">Signup Here</a>#}
-{#            </li>#}
-{#            <li class="nav-item">#}
-{#              <a class="nav-link" href="{% url 'olx:login' %}">Login</a>#}
-{#            </li>#}
-{#        {% endif %}#}
-{#        </ul>#}
-{#      </div>#}
-{#    </nav>#}
-
     <div class="container-fluid" >
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar" >
@@ -143,6 +101,7 @@
                 </div>
             </div>
                 <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+                {% endblock %}
                 {% block body_block %}{% endblock %}
                 </div>
         </div>
