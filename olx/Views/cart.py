@@ -102,7 +102,7 @@ def add_toCart(request,pk):
     context_dict = {}
     product = Product.objects.get(id=pk)
     try:
-        cart = Cart.objects.get(product=product)
+        cart = Cart.objects.get(user=request.user,product=product)
     except:
         cart = Cart(user=request.user,product=product)
         cart.save()
