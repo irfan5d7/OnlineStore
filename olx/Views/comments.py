@@ -10,7 +10,7 @@ class CreateCommentView(LoginRequiredMixin,CreateView):
     login_url = '/login/'
     model = Comments
     form_class = AddComment
-    template_name = 'comment.html   '
+    template_name = 'comment.html'
     def get_context_data(self, **kwargs):
         context = super(CreateCommentView, self).get_context_data(**kwargs)
         return context
