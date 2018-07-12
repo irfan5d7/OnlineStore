@@ -13,10 +13,6 @@ class CreateCommentView(LoginRequiredMixin,CreateView):
     template_name = 'comment.html   '
     def get_context_data(self, **kwargs):
         context = super(CreateCommentView, self).get_context_data(**kwargs)
-        profile = UserProfile.objects.filter(user__username=self.request.user.username)
-        if profile:
-            profile = profile[0]
-        context['prof'] = profile
         return context
     def post(self,request,*args,**kwargs):
         comment_form = AddComment(request.POST)
