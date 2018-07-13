@@ -24,15 +24,6 @@ class ShowCartView(LoginRequiredMixin,ListView):
             })
             return context
 
-#
-# def show_cart(request):
-#     context_dict = {}
-#     try:
-#         cart = Cart.objects.filter(user__id=request.user.id ,product__is_sold= False).values('id','product__id','product__name','product__price','product__seller__username','product__image','product__is_sold')
-#         context_dict['products'] = cart
-#     except Cart.DoesNotExist:
-#         pass
-#     return render(request, 'cart.html', context_dict)
 
 def buy(request,pk):
     context_dict = {}
@@ -66,13 +57,6 @@ class buy_view(View):
         return render(request,"confirm_buy.html",context)
 
 
-
-
-
-
-
-
-
 def myOrders(request):
     context_dict = {}
     try:
@@ -85,6 +69,8 @@ def myOrders(request):
     except Cart.DoesNotExist:
         pass
     return render(request, 'myOrders.html', context_dict)
+
+
 def my_posts(request):
     context_dict = {}
     try:

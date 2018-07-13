@@ -7,31 +7,7 @@ from olx.Views import show_category
 from olx.forms import *
 from olx.models import Category, Product
 import datetime
-#
-# def add_product(request,category_name_slug):
-#     template_name = 'add_product.html'
-#     try:
-#         category = Category.objects.get(slug = category_name_slug)
-#     except Category.DoesNotExist:
-#         category = None
-#     form = ProductForm()
-#     if request.method == 'POST':
-#         form = ProductForm(request.POST)
-#         if form.is_valid():
-#             if category :
-#                 product = form.save(commit = False)
-#                 product.category = category
-#                 product.seller= request.user
-#                 product.posted_on = product.sold_on = datetime.date.today()
-#                 import ipdb
-#                 ipdb.set_trace()
-#                 product.save()
-#                 return show_category(request,category_name_slug)
-#         else :
-#             print(form.errors)
-#     context_dict = {'form':form,'category':category}
-#     return render(request,'add_product.html',context_dict)
-#
+
 
 class CreateProductView(LoginRequiredMixin,CreateView):
     login_url = '/login/'

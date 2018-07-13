@@ -12,7 +12,7 @@ def show_category(request,category_name_slug):
     try:
         category = Category.objects.get(slug = category_name_slug)
         context_dict['category_name'] = category.name
-        products = Product.objects.filter(category=category,is_sold=False).exclude(seller__username__exact=request.user.username).order_by('price')
+        products = Product.objects.filter(category=category,is_sold=False).exclude(seller__username__exact=request.user.username)
         context_dict['products'] = products
         profile = UserProfile.objects.filter(user__username=request.user.username)
         if profile:
@@ -26,7 +26,7 @@ def show_category(request,category_name_slug):
     return render(request, 'category.html', context_dict)
 
 
-def show_category_price_dec(request,category_name_slug):
+def  show_category_price_dec(request,category_name_slug):
     context_dict = {}
     context_dict['result_list'] = None
     context_dict['query'] = None
@@ -36,6 +36,31 @@ def show_category_price_dec(request,category_name_slug):
         context_dict['category_name'] = category.name
         products = Product.objects.filter(category=category,is_sold=False).exclude(seller__username__exact=request.user.username).order_by('-price')
         context_dict['products'] = products
+        profile = UserProfile.objects.filter(user__username=request.user.username)
+        if profile:
+            profile = profile[0]
+        context_dict['prof'] = profile
+        context_dict['category'] = category
+    except Category.DoesNotExist:
+        pass
+    if not context_dict['query']:
+        context_dict['query'] = category.name
+    return render(request, 'category.html', context_dict)
+
+def  show_category_price_inc(request,category_name_slug):
+    context_dict = {}
+    context_dict['result_list'] = None
+    context_dict['query'] = None
+    query = None
+    try:
+        category = Category.objects.get(slug = category_name_slug)
+        context_dict['category_name'] = category.name
+        products = Product.objects.filter(category=category,is_sold=False).exclude(seller__username__exact=request.user.username).order_by('price')
+        context_dict['products'] = products
+        profile = UserProfile.objects.filter(user__username=request.user.username)
+        if profile:
+            profile = profile[0]
+        context_dict['prof'] = profile
         context_dict['category'] = category
     except Category.DoesNotExist:
         pass

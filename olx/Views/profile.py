@@ -26,17 +26,6 @@ class ProfileView(View):
         }
         return render(request,"profile.html",context)
 
-#
-# def ProfileView(request,value):
-#     profile = UserProfile.objects.filter(user__username=value).values('user__username', 'user__email',
-#                                                                                  'address', 'contact_no', 'picture')
-#     if profile:
-#         profile = profile[0]
-#     context = {'prof':profile}
-#     # import ipdb
-#     # ipdb.set_trace()
-#     return render(request, 'profile.html', context)
-#
 
 
 class CreateProfileView(LoginRequiredMixin,CreateView):
