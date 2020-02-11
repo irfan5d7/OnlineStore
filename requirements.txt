@@ -1,5 +1,5 @@
 decorator==4.3.0
-Django==2.0.5
+Django==2.2.10
 django-bootstrap-toolkit==2.15.0
 django-debug-toolbar==1.9.1
 django-registration-redux==2.4
