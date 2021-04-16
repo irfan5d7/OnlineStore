@@ -1,7 +1,7 @@
 decorator==4.3.0
 Django==2.0.5
 django-bootstrap-toolkit==2.15.0
-django-debug-toolbar==1.9.1
+django-debug-toolbar==1.11.1
 django-registration-redux==2.4
 get==1.0.3
 gunicorn==19.8.1
