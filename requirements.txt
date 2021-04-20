@@ -14,7 +14,7 @@ more-itertools==4.1.0
 pickleshare==0.7.4
 Pillow==5.1.0
 post==1.0.2
-py==1.5.3
+py==1.10.0
 python-decouple==3.1
 pytz==2018.4
 query-string==1.0.2
